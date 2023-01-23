@@ -8,7 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div id="header">
+        <h1>Etch-A-Sketch</h1>
+    </div>
+
+    <div id="grid"></div>
+
+    <div id="buttonsDiv">
+        <label for="colorpicker">Color Picker:</label>
+        <input type="color" value="#333333" id="colorPicker">
+        <button id="rainbowBtn">Rainbow</button>
+        <button id="eraserBtn">Eraser</button>
+        <button id="clearBtn">Clear</button>
+        <label for="sizeInput" id="sizeInputLabel">Change Size: 8 x 8</label>
+        <input type="range" min="1" max ='64' step="1" value="8" id="sizeInput">
+    </div>
 
     <script src="script.js"></script>
 </body>
