@@ -9,7 +9,7 @@ const sizeInput = document.querySelector('#sizeInput');
 let currentColor = '';
 let colorPicked;
 
-const DEFAULT_SIZE = 8;
+
 
 colorPicker.addEventListener('input', ()=>{
     colorPicked = colorPicker.value;
@@ -18,8 +18,12 @@ colorPicker.addEventListener('input', ()=>{
 
 sizeInput.addEventListener('input', ()=>{
     sizeInputLabel.innerHTML = `Change Size: ${sizeInput.value} x ${sizeInput.value}`;
+    grid.innerHTML = '';
+    createGrid(sizeInput.value);
     
 });
+
+
 
 
 function createGrid(length){
@@ -43,7 +47,7 @@ clearBtn.onclick = () =>{
 };
 
 
-
+//to clear grid=  grid.innerHTML = ''
 
 function changeColor(e){
     if(currentColor === 'rainbow'){
@@ -60,6 +64,3 @@ function changeColor(e){
     }
 }
 
-// window.onload = () =>{
-//     createGrid(DEFAULT_SIZE);
-// }
