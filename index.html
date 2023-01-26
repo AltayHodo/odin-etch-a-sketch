@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,16 +12,18 @@
         <h1>Etch-A-Sketch</h1>
     </div>
 
-    <div id="grid"></div>
-
-    <div id="buttonsDiv">
-        <label for="colorpicker">Color Picker:</label>
-        <input type="color" value="#333333" id="colorPicker">
-        <button id="rainbowBtn">Rainbow</button>
-        <button id="eraserBtn">Eraser</button>
-        <button id="clearBtn">Clear</button>
-        <label for="sizeInput" id="sizeInputLabel">Change Size: 8 x 8</label>
-        <input type="range" min="1" max ='64' step="1" value="8" id="sizeInput">
+    <div id="main">
+        <div id="buttonsDiv">
+           <!-- <label for="colorpicker">Color Picker:</label> -->
+          <input type="color" value="#333333" id="colorPicker">
+          <button id="rainbowBtn">Rainbow</button>
+          <button id="eraserBtn">Eraser</button>
+          <button id="clearBtn">Clear</button>
+          <label for="sizeInput" id="sizeInputLabel">Change Size: 8 x 8</label>
+         <input type="range" min="1" max ='64' step="1" value="8" id="sizeInput">
+         <div id="currentModeText">Current Mode: <br>None</br>  </div>
+      </div>
+      <div id="grid"></div>
     </div>
 
     <script src="script.js"></script>

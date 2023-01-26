@@ -5,6 +5,8 @@ const colorPicker = document.querySelector('#colorPicker');
 const clearBtn = document.querySelector('#clearBtn');
 const sizeInputLabel = document.querySelector('#sizeInputLabel');
 const sizeInput = document.querySelector('#sizeInput');
+const currentModeText = document.querySelector('#currentModeText');
+
 
 let currentColor = '';
 let colorPicked;
@@ -14,6 +16,7 @@ let colorPicked;
 colorPicker.addEventListener('input', ()=>{
     colorPicked = colorPicker.value;
     currentColor = 'custom';
+    changeCurrentModeText('Custom');
 });
 
 sizeInput.addEventListener('input', ()=>{
@@ -31,7 +34,7 @@ function createGrid(length){
     grid.style.gridTemplateColumns = `repeat(${length}, 1fr)`;
     for(let i = 0; i < (length * length); i++){
         const gridItem = document.createElement('div');
-        gridItem.style.border = '1px solid green';
+        // gridItem.style.border = '1px solid black';
         gridItem.addEventListener('mouseover', changeColor);
         grid.appendChild(gridItem).classList.add('box');
     }
@@ -40,8 +43,14 @@ createGrid(8);
 
 const boxes = document.querySelectorAll('.box');
 
-rainbowBtn.onclick = () => currentColor = 'rainbow';
-eraserBtn.onclick = () => currentColor = 'white';
+rainbowBtn.onclick = () =>{
+    currentColor = 'rainbow';
+    changeCurrentModeText('Rainbow');
+} 
+eraserBtn.onclick = () =>{ 
+    currentColor = 'white'; 
+    changeCurrentModeText('Eraser')
+}
 clearBtn.onclick = () =>{
     boxes.forEach(box => box.style.backgroundColor = 'white');
 };
@@ -64,3 +73,7 @@ function changeColor(e){
     }
 }
 
+
+function changeCurrentModeText(mode){
+    currentModeText.innerHTML = `Current Mode: <br> ${mode} <br>`;
+}
