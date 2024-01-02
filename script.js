@@ -59,7 +59,7 @@ function addHoverEffect(e, colorMode) {
   } else if(colorMode === 'rainbow'){
     square.style.backgroundColor = getRandomRGB();
   } else if(colorMode === 'default') {
-    square.style.backgroundColor = 'black';
+    square.style.backgroundColor = '#333';
   }
 }
 
