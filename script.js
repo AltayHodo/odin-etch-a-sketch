@@ -4,6 +4,7 @@ const colorMode = '';
 const eraseButton = document.querySelector('.erase-button');
 const rainbowButton = document.querySelector('.rainbow-button');
 const clearButton = document.querySelector('.clear-button');
+const colorPicker = document.querySelector('.color-picker');
 
 function makeGrid(cols) {
   gridContainer.style.display = 'grid';
@@ -11,6 +12,7 @@ function makeGrid(cols) {
   for (let i = 0; i < (cols * cols); i++) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
+    gridItem.style.border = '1px solid #333'
     gridContainer.appendChild(gridItem);
   }
   addGridEventListeners();
@@ -42,6 +44,11 @@ rainbowButton.addEventListener('click', () => {
   addGridEventListeners('rainbow');
 })
 
+colorPicker.addEventListener('input', (e) => {
+  const color = e.target.value;
+  addGridEventListeners(color);
+});
+
 clearButton.addEventListener('click', eraseGrid);
 
 function eraseGrid(){
@@ -60,6 +67,8 @@ function addHoverEffect(e, colorMode) {
     square.style.backgroundColor = getRandomRGB();
   } else if(colorMode === 'default') {
     square.style.backgroundColor = '#333';
+  } else{
+    square.style.backgroundColor = colorMode;
   }
 }
 
